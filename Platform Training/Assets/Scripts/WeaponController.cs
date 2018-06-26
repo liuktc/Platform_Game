@@ -19,9 +19,6 @@ public class WeaponController : MonoBehaviour {
 
 	public GameObject Projectile;
 
-	public Animator Weapon_Animator;
-
-
 	void Start()
 	{
 		Player = GameObject.FindWithTag("Player");
@@ -134,22 +131,20 @@ public class WeaponController : MonoBehaviour {
 	public void Attack1()
 	{
 		Weapon_Status.Attack1 = true;
-		Weapon_Animator.SetBool("Attack", true);
-
-		Weapon_Status.reset();
 	}
 
 	public void Attack2()
 	{
 		Weapon_Status.Attack2 = true;
-		Weapon_Status.reset();
 	}
 
 	public void Defend()
 	{
-		Weapon_Status.Defend = true;
-		Weapon_Animator.SetBool("Defend", true);
-		Weapon_Status.reset();	}
+		Weapon_Status.Defend = true;	}
+
+	public void Stop_Defend()
+	{
+		Weapon_Status.Defend = false;	}
 
 	struct WeaponStatus {
 		public bool Attack1, Attack2, Defend;

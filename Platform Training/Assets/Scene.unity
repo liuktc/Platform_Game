@@ -285,7 +285,6 @@ MonoBehaviour:
   lastLeft: 0
   lastRight: 0
   Projectile: {fileID: 0}
-  Weapon_Animator: {fileID: 0}
   maxJumpHeight: 4
   minJumpHeight: 1
   timeToJumpApex: 0.6
@@ -1096,9 +1095,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1164068475}
-  - component: {fileID: 1164068478}
-  - component: {fileID: 1164068477}
-  - component: {fileID: 1164068476}
   m_Layer: 8
   m_Name: Weapon
   m_TagString: Weapon
@@ -1120,51 +1116,6 @@ Transform:
   m_Father: {fileID: 1226619871}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1164068476
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164068474}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 1d34c0c37a32e5a4c9da438bfe8b087b, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 1d34c0c37a32e5a4c9da438bfe8b087b, type: 2}
-  - {fileID: 7400000, guid: 93b397ac6e8ead948abd5e2886462ba0, type: 2}
-  - {fileID: 7400000, guid: 0ab048922c64e484c82a98c76b731fd2, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &1164068477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164068474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dda160e9855760419a0c54d36c5de9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &1164068478
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1164068474}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: efeaf14bde00bd6418aab595b20420d0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1190114044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1434,6 @@ MonoBehaviour:
   lastLeft: 0
   lastRight: 0
   Projectile: {fileID: 0}
-  Weapon_Animator: {fileID: 1164068478}
 --- !u!1 &1542389692
 GameObject:
   m_ObjectHideFlags: 0
