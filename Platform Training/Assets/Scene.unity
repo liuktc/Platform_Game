@@ -494,7 +494,7 @@ MonoBehaviour:
   lookAheadDstX: 4
   lookSmoothTimeX: 0.5
   verticalSmoothTime: 0.1
-  focusAreaSize: {x: 3, y: 5}
+  focusAreaSize: {x: 1, y: 3}
 --- !u!1 &773823214
 GameObject:
   m_ObjectHideFlags: 0
