@@ -93,8 +93,8 @@ public class WeaponController : MonoBehaviour {
 		{
 			Angle += 360;
 		}
-		ClampAngle();
-		CalculateFlip();
+		//ClampAngle();
+		//CalculateFlip();
 
 		DebugText.text = "α = " + Angle;
 		transform.eulerAngles = new Vector3(0,0,Angle);
