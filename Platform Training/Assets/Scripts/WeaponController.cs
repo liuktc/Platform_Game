@@ -11,8 +11,9 @@ public class WeaponController : MonoBehaviour {
 	public Text DebugText;
 
 	public GameObject Weapon_Pivot;
-	public GameObject Weapon_Collider;
-	WeaponStatus Weapon_Status;
+	public Collider2D Weapon_Collider;
+	public GameObject Weapon_Sprite;
+	public WeaponStatus Weapon_Status;
 	public GameObject Player;
 
 	public bool left, right,lastLeft,lastRight;
@@ -23,7 +24,8 @@ public class WeaponController : MonoBehaviour {
 	{
 		Player = GameObject.FindWithTag("Player");
 		Weapon_Pivot = GameObject.FindWithTag("Weapon");
-		Weapon_Collider = GameObject.Find("WeaponSprite_Collider");
+		Weapon_Collider = GameObject.Find("WeaponSprite_Collider").GetComponent<Collider2D>();
+		Weapon_Sprite = GameObject.Find("WeaponSprite_Collider");
 	}
 	void Update () {
 		if (Input.GetJoystickNames().Length > 0){
@@ -94,7 +96,7 @@ public class WeaponController : MonoBehaviour {
 			Angle += 360;
 		}
 		//ClampAngle();
-		//CalculateFlip();
+		CalculateFlip();
 
 		DebugText.text = "α = " + Angle;
 		transform.eulerAngles = new Vector3(0,0,Angle);
@@ -140,13 +142,15 @@ public class WeaponController : MonoBehaviour {
 
 	public void Defend()
 	{
-		Weapon_Status.Defend = true;	}
+		Weapon_Status.Defend = true;
+		Weapon_Sprite.transform.localPosition = new Vector3(Weapon_Sprite.transform.localPosition.x, 0.0f, Weapon_Sprite.transform.localPosition.z);	}
 
 	public void Stop_Defend()
 	{
-		Weapon_Status.Defend = false;	}
+		Weapon_Status.Defend = false;
+		Weapon_Sprite.transform.localPosition = new Vector3(Weapon_Sprite.transform.localPosition.x, 0.35f, Weapon_Sprite.transform.localPosition.z);	}
 
-	struct WeaponStatus {
+	public struct WeaponStatus {
 		public bool Attack1, Attack2, Defend;
 		public void reset()
 		{
