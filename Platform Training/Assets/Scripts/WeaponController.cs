@@ -36,9 +36,6 @@ public class WeaponController : MonoBehaviour {
 			//Debug.Log("No controller connected");
 			Angle = MouseAngle();
 		}
-		if (Angle == 0 && lastLeft){
-			Angle = 180;
-		}
 		ApplyAngle();
 
 		lastLeft = left;
@@ -50,6 +47,9 @@ public class WeaponController : MonoBehaviour {
 		float Horizontal = Input.GetAxis("RightStickX");
 		float Vertical = Input.GetAxis("RightStickY");
 
+		if ((Horizontal<0.05 && Horizontal > - 0.05) && (Vertical < 0.05 && Vertical > -0.05) && lastLeft){
+			return 180;
+		}
 		return -Mathf.Atan2(Vertical, Horizontal) * Mathf.Rad2Deg;
 	}
 
