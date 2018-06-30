@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour {
 
+	[HideInInspector]
 	public float Angle;
 	float lastAngle;
 
 	public Text DebugText;
 
+	[HideInInspector]
 	public GameObject Weapon_Pivot;
+	[HideInInspector]
 	public Collider2D Weapon_Collider;
+	[HideInInspector]
 	public GameObject Weapon_Sprite;
+	[HideInInspector]
 	public WeaponStatus Weapon_Status;
+	[HideInInspector]
 	public GameObject Player;
 
+	[HideInInspector]
 	public bool left, right,lastLeft,lastRight;
 
 	public GameObject Projectile;

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent (typeof (Controller2D))]
-public class Player : WeaponController {
+public class Player : MonoBehaviour {
 
 
 	public float maxJumpHeight = 4;
@@ -39,6 +39,8 @@ public class Player : WeaponController {
 	public Text DebugTest;
 
 	private GameObject hand;
+
+	float Angle;
 
 	void Start() {
 		hand = GameObject.FindWithTag("Hand");

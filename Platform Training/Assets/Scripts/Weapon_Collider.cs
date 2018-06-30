@@ -12,7 +12,7 @@ public class Weapon_Collider : MonoBehaviour
 	}
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		Debug.Log("Collision with weapon detected");
+		//Debug.Log("Collision with weapon detected");
 		if (Weapon.GetComponent<WeaponController>().Weapon_Status.Defend == true)
 		{			if (col.tag == "Projectile") {
 				col.GetComponent<Projectile>().Destroy(false);

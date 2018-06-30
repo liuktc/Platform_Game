@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour {
 	public GameObject Destroy_Animation_Body;
 	public float Destroy_Delay;
 	public float Damage;
+	public float speed;
 
 	public void Destroy (bool body) {
 		GameObject instance;
@@ -23,7 +24,7 @@ public class Projectile : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		transform.Translate(Vector2.left * Time.deltaTime);
+	void FixedUpdate () {
+		transform.Translate(Vector2.right * Time.deltaTime * speed);
 	}
 }

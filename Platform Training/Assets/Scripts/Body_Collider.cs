@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Body_Collider : MonoBehaviour {
-	public GameObject Player;
+	GameObject Player;
 
 	void Start()
 	{
