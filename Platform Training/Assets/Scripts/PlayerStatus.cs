@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour {
 	public float Life = 100;
@@ -13,6 +14,10 @@ public class PlayerStatus : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Life_Slider.value = Life;
+		if (Life == 0)
+		{
+			Application.Quit();
+		}
 	}
 
 	public void GetDamage(float damage)

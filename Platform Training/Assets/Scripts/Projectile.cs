@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour {
 	public float Damage;
 	public float speed;
 
-	public void Destroy (bool body) {
+	public void Destroy (bool body,Collider2D col) {
 		GameObject instance;
 		if (body == true)
 		{

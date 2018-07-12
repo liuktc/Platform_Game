@@ -13,7 +13,7 @@ public class Body_Collider : MonoBehaviour {
 	{
 		if (col.tag == "Projectile")
 		{
-			col.GetComponent<Projectile>().Destroy(true);
+			col.GetComponent<Projectile>().Destroy(true,col);
 			Player.GetComponent<PlayerStatus>().GetDamage(col.gameObject.GetComponent<Projectile>().Damage);
 		}
 	}

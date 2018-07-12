@@ -94,7 +94,7 @@ MonoBehaviour:
     type: 2}
   Destroy_Delay: 0
   Damage: 30
-  speed: 2
+  speed: 10
 --- !u!212 &212781482375724630
 SpriteRenderer:
   m_ObjectHideFlags: 1
