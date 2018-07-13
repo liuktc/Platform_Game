@@ -13,11 +13,12 @@ public class Projectile : MonoBehaviour {
 		GameObject instance;
 		if (body == true)
 		{
-			instance = (GameObject)Instantiate(Destroy_Animation_Body, this.transform.position, new Quaternion(0, 0, 0, 0));
+			instance = (GameObject)Instantiate(Destroy_Animation_Body, this.transform.FindChild("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+			instance.transform.parent = GameObject.FindWithTag("Player").transform;
 		}
 		else
 		{
-			instance = (GameObject)Instantiate(Destroy_Animation_NotBody, this.transform.position, new Quaternion(0, 0, 0, 0));
+			instance = (GameObject)Instantiate(Destroy_Animation_NotBody, this.transform.FindChild("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
 		}
 		Destroy(instance, instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length +Destroy_Delay);
 		Destroy(gameObject, 0.0f);
@@ -26,5 +27,13 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		transform.Translate(Vector2.right * Time.deltaTime * speed);
+	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.layer == 9)
+		{
+			Destroy(false, col);
+		}
 	}
 }

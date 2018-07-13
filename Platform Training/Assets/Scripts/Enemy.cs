@@ -71,6 +71,8 @@ public class Enemy : MonoBehaviour {
 
 	void Shoot()
 	{
-		Instantiate(Projectile, gameObject.transform.Find("Hand").Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
+		GameObject instance;
+		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Hand").Find("HandSprite").gameObject.transform.position,Quaternion.Euler(0, 0, Angle));
+		Destroy(instance, 5.0f);
 	}
 }
