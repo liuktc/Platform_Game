@@ -35,18 +35,18 @@ public class PlayerInput : MonoBehaviour {
 		{
 			weapon.Defend();
 		}
-		if (Input.GetJoystickNames().Length > 0)
+		/*if (Input.GetJoystickNames().Length > 0)
 		{
 			if (Input.GetAxis("Defend") == 0)
 			{
 				weapon.Stop_Defend();
 			}
 		}
-		else
-		{
+		else*/
+		//{
 			if (Input.GetMouseButtonUp(1)) {
 				weapon.Stop_Defend();
 			}
-		}
+		//}
 	}
 }

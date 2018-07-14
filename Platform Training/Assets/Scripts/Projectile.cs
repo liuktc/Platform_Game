@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
+	GameObject Weapon;
+
 	public GameObject Destroy_Animation_NotBody;
 	public GameObject Destroy_Animation_Body;
 	public float Destroy_Delay;
 	public float Damage;
 	public float speed;
 
+
+	void Start()
+	{
+		Weapon = GameObject.FindWithTag("Hand");
+	}
 	public void Destroy (bool body,Collider2D col) {
 		GameObject instance;
 		if (body == true)
@@ -31,9 +38,33 @@ public class Projectile : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.layer == 9)
+		if (col.tag == "Enemy")
 		{
-			Destroy(false, col);
+			Destroy(true, col);
+			col.gameObject.GetComponent<Enemy_Status>().GetDamage(Damage);
 		}
+		else
+		{
+			if (col.gameObject.layer == 9)
+			{
+				Destroy(false, col);
+			}
+			else
+			{
+				if (col.gameObject.tag == "Weapon_Collider" && Weapon.GetComponent<WeaponController>().Weapon_Status.Defend == true)
+				{
+					Destroy(false, col);
+				}
+				else
+				{
+					if (col.gameObject.tag == "Player")
+					{
+						col.gameObject.GetComponent<PlayerStatus>().GetDamage(Damage);
+						Destroy(true, col);
+					}
+				}
+			}
+		}
+
 	}
 }

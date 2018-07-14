@@ -33,16 +33,22 @@ public class WeaponController : MonoBehaviour {
 		Weapon_Pivot = GameObject.FindWithTag("Weapon");
 		Weapon_Collider = GameObject.Find("WeaponSprite_Collider").GetComponent<Collider2D>();
 		Weapon_Sprite = GameObject.Find("WeaponSprite_Collider");
+		if (Input.GetJoystickNames().Length > 0)
+		{
+			Debug.Log("Controller connected");
+		}
 	}
 	void Update () {
-		if (Input.GetJoystickNames().Length > 0){
+		/*if (Input.GetJoystickNames().Length > 0){
 			//Debug.Log("Controller connected");
 			Angle = JoystickAngle();
 		}
 		else {
 			//Debug.Log("No controller connected");
 			Angle = MouseAngle();
-		}
+		}*/
+
+		Angle = MouseAngle();
 		ApplyAngle();
 
 		lastLeft = left;
@@ -145,6 +151,9 @@ public class WeaponController : MonoBehaviour {
 	public void Attack2()
 	{
 		Weapon_Status.Attack2 = true;
+		GameObject instance;
+		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("HandSprite").gameObject.transform.position,Quaternion.Euler(0, 0, Angle));
+		Destroy(instance, 5.0f);
 	}
 
 	public void Defend()

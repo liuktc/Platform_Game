@@ -8,6 +8,8 @@ TagManager:
   - Weapon
   - Hand
   - Projectile
+  - Weapon_Collider
+  - Enemy
   layers:
   - Default
   - TransparentFX
