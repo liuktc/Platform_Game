@@ -6,6 +6,7 @@ public class PlayerInput : MonoBehaviour {
 
 	Player player;
 	WeaponController weapon;
+	public bool Attack2Active = false;
 
 	void Start () {
 		player = GetComponent<Player> ();
@@ -27,7 +28,7 @@ public class PlayerInput : MonoBehaviour {
 		{
 			weapon.Attack1();
 		}
-		if (Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(2))
+		if ((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(2))&&Attack2Active)
 		{
 			weapon.Attack2();
 		}

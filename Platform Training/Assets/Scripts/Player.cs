@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
 		}
 		//OnJumpInputDown();
 
-		DebugTest.text = " Up = " + controller.collisions.above + "\n Down = " + controller.collisions.below + "\n Right = " + controller.collisions.right + "\n Left = " + controller.collisions.left + "\n 2nd jump = " + secondJumpAvaible;
+		//DebugTest.text = " Up = " + controller.collisions.above + "\n Down = " + controller.collisions.below + "\n Right = " + controller.collisions.right + "\n Left = " + controller.collisions.left + "\n 2nd jump = " + secondJumpAvaible;
 
 		CalculateVelocity ();
 		HandleWallSliding ();

@@ -13,8 +13,8 @@ public class WeaponController : MonoBehaviour {
 
 	[HideInInspector]
 	public GameObject Weapon_Pivot;
-	[HideInInspector]
-	public Collider2D Weapon_Collider;
+	/*[HideInInspector]
+	public Collider2D Weapon_Collider;*/
 	[HideInInspector]
 	public GameObject Weapon_Sprite;
 	[HideInInspector]
@@ -31,7 +31,7 @@ public class WeaponController : MonoBehaviour {
 	{
 		Player = GameObject.FindWithTag("Player");
 		Weapon_Pivot = GameObject.FindWithTag("Weapon");
-		Weapon_Collider = GameObject.Find("WeaponSprite_Collider").GetComponent<Collider2D>();
+		//Weapon_Collider = GameObject.Find("WeaponSprite_Collider").GetComponent<Collider2D>();
 		Weapon_Sprite = GameObject.Find("WeaponSprite_Collider");
 		if (Input.GetJoystickNames().Length > 0)
 		{
@@ -111,7 +111,7 @@ public class WeaponController : MonoBehaviour {
 		//ClampAngle();
 		CalculateFlip();
 
-		DebugText.text = "α = " + Angle;
+		//DebugText.text = "α = " + Angle;
 		transform.eulerAngles = new Vector3(0,0,Angle);
 	}
 
@@ -153,6 +153,7 @@ public class WeaponController : MonoBehaviour {
 		Weapon_Status.Attack2 = true;
 		GameObject instance;
 		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("HandSprite").gameObject.transform.position,Quaternion.Euler(0, 0, Angle));
+		instance.GetComponent<Projectile>().Fired_By_Player = true;
 		Destroy(instance, 5.0f);
 	}
 

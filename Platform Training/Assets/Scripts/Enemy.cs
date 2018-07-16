@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour {
 	{
 		GameObject instance;
 		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Hand").Find("HandSprite").gameObject.transform.position,Quaternion.Euler(0, 0, Angle));
+		instance.GetComponent<Projectile>().Fired_By_Player = false;
 		Destroy(instance, 5.0f);
 	}
 }

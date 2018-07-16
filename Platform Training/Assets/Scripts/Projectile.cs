@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour {
 	public float Damage;
 	public float speed;
 
+	public bool Fired_By_Player;
+
 
 	void Start()
 	{
@@ -38,14 +40,14 @@ public class Projectile : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "Enemy")
+		if (col.tag == "Enemy" && Fired_By_Player == true)
 		{
 			Destroy(true, col);
 			col.gameObject.GetComponent<Enemy_Status>().GetDamage(Damage);
 		}
 		else
 		{
-			if (col.gameObject.layer == 9)
+			if (col.gameObject.layer == 9 && col.tag != "Enemy")
 			{
 				Destroy(false, col);
 			}
@@ -57,7 +59,7 @@ public class Projectile : MonoBehaviour {
 				}
 				else
 				{
-					if (col.gameObject.tag == "Player")
+					if (col.gameObject.tag == "Player" && Fired_By_Player == false)
 					{
 						col.gameObject.GetComponent<PlayerStatus>().GetDamage(Damage);
 						Destroy(true, col);
