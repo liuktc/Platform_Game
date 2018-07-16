@@ -8,31 +8,36 @@ public class PlayerInput : MonoBehaviour {
 	WeaponController weapon;
 	public bool Attack2Active = false;
 
+	public bool ControlEnabled = true;
+
 	void Start () {
 		player = GetComponent<Player> ();
 		weapon = GameObject.FindWithTag("Hand").GetComponent<WeaponController>();
 	}
 
 	void Update () {
-		Vector2 directionalInput = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-		player.SetDirectionalInput (directionalInput);
+		if (ControlEnabled)
+		{
+			Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+			player.SetDirectionalInput(directionalInput);
+		}
 
-		if (Input.GetButtonDown ("Jump") || Input.GetKeyDown(KeyCode.Joystick1Button0)) {
+		if ((Input.GetButtonDown ("Jump") || Input.GetKeyDown(KeyCode.Joystick1Button0)) && ControlEnabled) {
 			player.OnJumpInputDown ();
 		}
-		if (Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.Joystick1Button0))
+		if ((Input.GetButtonUp("Jump") || Input.GetKeyUp(KeyCode.Joystick1Button0))&&ControlEnabled)
 		{
 			player.OnJumpInputUp();
 		}
-		if (Input.GetAxis("Attack1") > 0 || Input.GetMouseButtonDown(0)) 
+		if ((Input.GetAxis("Attack1") > 0 || Input.GetMouseButtonDown(0))&&ControlEnabled)
 		{
 			weapon.Attack1();
 		}
-		if ((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(2))&&Attack2Active)
+		if (((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(2))&&Attack2Active) && ControlEnabled)
 		{
 			weapon.Attack2();
 		}
-		if (Input.GetAxis("Defend") > 0 || Input.GetMouseButtonDown(1))
+		if ((Input.GetAxis("Defend") > 0 || Input.GetMouseButtonDown(1)) && ControlEnabled)
 		{
 			weapon.Defend();
 		}

@@ -10,5 +10,17 @@ public class DialogueTrigger : MonoBehaviour {
 	{
 		FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 	}
+	public void StopDialogue()
+	{
+		FindObjectOfType<DialogueManager>().EndDialogue();
+	}
+	public bool IsDialogueEnded()
+	{
+		if (FindObjectOfType<DialogueManager>().sentences.Count == 0)
+		{
+			return true;
+		}
+		return false;
+	}
 
 }

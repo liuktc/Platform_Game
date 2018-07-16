@@ -20,7 +20,7 @@ public class PlayerStatus : MonoBehaviour {
 		Life_Slider.value = Health;
 		if (Health <= 0)
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			SceneManager.LoadScene("Dojo");
 		}
 	}
 

@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour {
 	{
 		Weapon = GameObject.FindWithTag("Hand");
 	}
-	public void Destroy (bool body,Collider2D col) {
+	public void Destroy (bool body,Collider2D col,bool weapon) {
 		GameObject instance;
 		if (body == true)
 		{
@@ -28,6 +28,10 @@ public class Projectile : MonoBehaviour {
 		else
 		{
 			instance = (GameObject)Instantiate(Destroy_Animation_NotBody, this.transform.FindChild("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+			if (weapon)
+			{
+				instance.transform.parent = GameObject.FindWithTag("Player").transform;
+			}
 		}
 		Destroy(instance, instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length +Destroy_Delay);
 		Destroy(gameObject, 0.0f);
@@ -42,27 +46,27 @@ public class Projectile : MonoBehaviour {
 	{
 		if (col.tag == "Enemy" && Fired_By_Player == true)
 		{
-			Destroy(true, col);
+			Destroy(true, col, false);
 			col.gameObject.GetComponent<Enemy_Status>().GetDamage(Damage);
 		}
 		else
 		{
 			if (col.gameObject.layer == 9 && col.tag != "Enemy")
 			{
-				Destroy(false, col);
+				Destroy(false, col, false);
 			}
 			else
 			{
 				if (col.gameObject.tag == "Weapon_Collider" && Weapon.GetComponent<WeaponController>().Weapon_Status.Defend == true)
 				{
-					Destroy(false, col);
+					Destroy(false, col, true);
 				}
 				else
 				{
 					if (col.gameObject.tag == "Player" && Fired_By_Player == false)
 					{
 						col.gameObject.GetComponent<PlayerStatus>().GetDamage(Damage);
-						Destroy(true, col);
+						Destroy(true, col, false);
 					}
 				}
 			}

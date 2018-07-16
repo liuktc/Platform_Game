@@ -242,6 +242,18 @@ MonoBehaviour:
   nameText: {fileID: 1621697301}
   dialogueText: {fileID: 574018839}
   animator: {fileID: 1961281408}
+--- !u!114 &411285722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411285714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf529695f1783440b736fa711ab2cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: Main
 --- !u!1001 &453733471
 Prefab:
   m_ObjectHideFlags: 0
@@ -433,6 +445,7 @@ GameObject:
   - component: {fileID: 588252148}
   - component: {fileID: 588252147}
   - component: {fileID: 588252149}
+  - component: {fileID: 588252150}
   m_Layer: 9
   m_Name: Po
   m_TagString: Untagged
@@ -484,7 +497,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.36, y: -1.67, z: 22.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 788711590}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -521,6 +535,8 @@ MonoBehaviour:
       My name is Po, and i''m the fattest ninja in the world.'
     - Today i'll teach you how to fight.
     - First take that spinning power-up to unlock shuriken.
+    - And press the mouse scroller button to throw them.
+    - AND TRY TO HIT ME !!!!
 --- !u!114 &588252149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +548,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c21fa7086cb52e49b3a49aa2fb27dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &588252150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588252144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ddd33eae28b5148a72170d47ccd942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Po
+    sentences:
+    - As you can see, i'm so fast that you can't hit me with yours shurikens.
 --- !u!1 &756848381
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,15 +639,59 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756848381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.27, y: -3.55, z: 15.31}
-  m_LocalScale: {x: 22.28, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2139797719}
-  - {fileID: 1384793229}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_LocalRotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.18491913, y: -9.18, z: 0}
+  m_LocalScale: {x: 63.49801, y: 0.044883277, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2139797719}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788711589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 788711590}
+  - component: {fileID: 788711591}
+  m_Layer: 9
+  m_Name: 2_dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788711590
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788711589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 588252146}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788711591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 788711589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ddd33eae28b5148a72170d47ccd942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Po
+    sentences:
+    - "As you can see, your stupid shurikhen can't hit me because i'm too agile.\t"
+    - AHHAHAHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHAHHAHAHAHAHAHA
+    - NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOB
 --- !u!1 &881121807
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +873,10 @@ GameObject:
   - component: {fileID: 1384793228}
   - component: {fileID: 1384793227}
   - component: {fileID: 1384793226}
-  m_Layer: 9
-  m_Name: Ground (2)
+  - component: {fileID: 1384793230}
+  - component: {fileID: 1384793231}
+  m_Layer: 0
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,13 +940,44 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1384793225}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.44703767, y: 4.89, z: 0}
-  m_LocalScale: {x: 22.280008, y: 0.044883322, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03276462, y: -28.550005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 756848385}
-  m_RootOrder: 1
+  m_Father: {fileID: 2139797719}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1384793230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1384793225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1936c5c4a772894db5ed79889e20c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1384793231
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1384793225}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1399098443
 Prefab:
   m_ObjectHideFlags: 0
@@ -1120,7 +1228,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1578350263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 24.64}
+  m_LocalPosition: {x: 0, y: 1.6, z: 24.64}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 1422006895}
@@ -1249,7 +1357,8 @@ Prefab:
       propertyPath: DebugText
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114877863982209434, guid: 213b2a053ad34f5418fd9a8db18df354, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 213b2a053ad34f5418fd9a8db18df354, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1809519645
@@ -1469,9 +1578,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2139797715}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.41202873, y: 4.12, z: 0}
-  m_LocalScale: {x: 22.280008, y: 0.044883322, z: 1}
-  m_Children: []
-  m_Father: {fileID: 756848385}
-  m_RootOrder: 0
+  m_LocalPosition: {x: -10.450001, y: 0.56999993, z: 15.31}
+  m_LocalScale: {x: 22.280016, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1384793229}
+  - {fileID: 756848385}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
