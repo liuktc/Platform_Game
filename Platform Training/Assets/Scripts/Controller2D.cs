@@ -92,8 +92,23 @@ public class Controller2D : RaycastController {
 						moveAmount.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(moveAmount.x);
 					}
 
-					collisions.left = directionX == -1;
-					collisions.right = directionX == 1;
+					if (directionX == -1)
+					{
+						collisions.left = true;
+						collisions.right = false;
+						collisions.leftCol = hit.collider;
+					}
+					else
+					{
+						if (directionX == 1)
+						{
+							collisions.right = true;
+							collisions.left = false;
+							collisions.rightCol = hit.collider;
+						}
+					}
+					/*collisions.left = directionX == -1;
+					collisions.right = directionX == 1;*/
 				}
 			}
 		}
@@ -226,6 +241,7 @@ public class Controller2D : RaycastController {
 	public struct CollisionInfo {
 		public bool above, below;
 		public bool left, right;
+		public Collider2D leftCol, rightCol;
 
 		public bool climbingSlope;
 		public bool descendingSlope;
@@ -244,7 +260,7 @@ public class Controller2D : RaycastController {
 			descendingSlope = false;
 			slidingDownMaxSlope = false;
 			slopeNormal = Vector2.zero;
-
+			leftCol = rightCol = null;
 			slopeAngleOld = slopeAngle;
 			slopeAngle = 0;
 		}

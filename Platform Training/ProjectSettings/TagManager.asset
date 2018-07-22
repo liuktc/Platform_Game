@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Weapon_Collider
   - Enemy
+  - NoHit
   layers:
   - Default
   - TransparentFX

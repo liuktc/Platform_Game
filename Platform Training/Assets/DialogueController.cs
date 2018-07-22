@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Po : MonoBehaviour {
+public class DialogueController : MonoBehaviour {
 	GameObject Player;
 	//bool speaked = false;
-	bool[] speaked = { false, false };
+	bool speaked_first = false;
 	bool speaking = false;
 
+
+	public bool Loop_Last_Speech;
+	public int Number_Of_Speech;
+
+	int Sentences_Speaked = 0;
 	float PlayerStats;
 	// Use this for initialization
 	void Start () {
@@ -25,15 +30,35 @@ public class Po : MonoBehaviour {
 	void Speak()
 	{
 		speaking = true;
-		if (speaked[0] == false)
+		if (speaked_first == false)
 		{
 			GetComponent<DialogueTrigger>().TriggerDialogue();
-			speaked[0] = true;
+			Sentences_Speaked++;
+			speaked_first = true;
 		}
 		else
 		{
-			Debug.Log("2nd dialogue");
-			transform.Find("2_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+			if (Sentences_Speaked < Number_Of_Speech)
+			{
+				Sentences_Speaked++;
+				Debug.Log(Sentences_Speaked + "nd dialogue");
+				transform.Find(Sentences_Speaked + "_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+			}
+			else
+			{
+				if (Number_Of_Speech == 1)
+				{
+					GetComponent<DialogueTrigger>().TriggerDialogue();
+				}
+				else
+				{
+					if (Loop_Last_Speech == true)
+					{
+						Debug.Log(Sentences_Speaked + "nd dialogue");
+						transform.Find(Sentences_Speaked + "_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+					}
+				}
+			}
 		}
 	}
 	void StopSpeak()

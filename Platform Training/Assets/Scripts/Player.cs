@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 	Controller2D controller;
 
 	Vector2 directionalInput;
+	Vector2 directionalInputAdd;
 	bool wallSliding;
 	int wallDirX;
 
@@ -40,7 +41,7 @@ public class Player : MonoBehaviour {
 
 	private GameObject hand;
 
-	float Angle;
+	float PlayerAngle;
 
 	void Start() {
 		hand = GameObject.FindWithTag("Hand");
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
-		Angle = hand.GetComponent<WeaponController>().Angle;
+		PlayerAngle = MouseAngle();
 		CalculateFlip();
 		if (controller.collisions.below || controller.collisions.left || controller.collisions.right)
 		{
@@ -77,10 +78,45 @@ public class Player : MonoBehaviour {
 		}
 
 	}
+	float MouseAngle()
+	{
+		float MouseX = Input.mousePosition.x;
+		float MouseY = Input.mousePosition.y;
+
+		Camera MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+		GameObject Origin = gameObject;
+
+		float OriginX = MainCamera.WorldToScreenPoint(Origin.transform.position).x;
+		float OriginY = MainCamera.WorldToScreenPoint(Origin.transform.position).y;
+
+		float relMouseX = MouseX - OriginX;
+		float relMouseY = MouseY - OriginY;
+
+		float AngleTemp = Mathf.Atan(Mathf.Abs(relMouseY) / Mathf.Abs(relMouseX)) * Mathf.Rad2Deg;
+
+		if (relMouseX >= 0 && relMouseY >= 0)
+		{
+			return AngleTemp;
+		}
+		if (relMouseX < 0 && relMouseY >= 0)
+		{
+			return 180 - AngleTemp;
+		}
+		if (relMouseX < 0 && relMouseY < 0)
+		{
+			return AngleTemp + 180;
+		}
+		if (relMouseX >= 0 && relMouseY < 0)
+		{
+			return 360 - AngleTemp;
+		}
+		return 0;
+	}
+
 
 	void CalculateFlip()
 	{
-		if ((Angle <= 90 && Angle >= 0) || (Angle >= 270 && Angle <= 360))
+		if ((PlayerAngle <= 90 && PlayerAngle >= 0) || (PlayerAngle >= 270 && PlayerAngle <= 360))
 		{
 			GetComponent<SpriteRenderer>().flipX = true;
 		}
@@ -89,61 +125,105 @@ public class Player : MonoBehaviour {
 		}
 	}
 	public void SetDirectionalInput (Vector2 input) {
-		directionalInput = input;
+		directionalInput = input + directionalInputAdd;
+		//Debug.Log(directionalInput);
 	}
+
+	public void AddDirectionalInput(Vector2 Force, float time)
+	{
+		directionalInputAdd = Force;
+		Debug.Log("Added " + directionalInputAdd);
+        StartCoroutine(Example(time));
+		//directionalInputAdd = new Vector2(0, 0);
+	}
+	IEnumerator Example(float time)
+	{
+		//print(Time.time);
+		yield return new WaitForSeconds(time);
+		directionalInputAdd = new Vector2(0, 0);
+		//print(Time.time);	 }
 
 	public void OnJumpInputDown()
 	{
-		if (wallSliding)
+		if (controller.collisions.rightCol)
 		{
-			secondJumpAvaible = true;
-			controller.collisions.right = false;
-			controller.collisions.left = false;
-			if (wallDirX == directionalInput.x)
+			if (wallSliding && controller.collisions.rightCol.tag != "NoHit")
 			{
-				velocity.x = -wallDirX * wallJumpClimb.x;
-				velocity.y = wallJumpClimb.y;
-			}
-			else if (directionalInput.x == 0)
-			{
-				velocity.x = -wallDirX * wallJumpOff.x;
-				velocity.y = wallJumpOff.y;
-			}
-			else {
-				velocity.x = -wallDirX * wallLeap.x;
-				velocity.y = wallLeap.y;
+				secondJumpAvaible = true;
+				controller.collisions.right = false;
+				controller.collisions.left = false;
+				if (wallDirX == directionalInput.x)
+				{
+					velocity.x = -wallDirX * wallJumpClimb.x;
+					velocity.y = wallJumpClimb.y;
+				}
+				else if (directionalInput.x == 0)
+				{
+					velocity.x = -wallDirX * wallJumpOff.x;
+					velocity.y = wallJumpOff.y;
+				}
+				else
+				{
+					velocity.x = -wallDirX * wallLeap.x;
+					velocity.y = wallLeap.y;
+				}
 			}
 		}
-		else {
-			if (controller.collisions.below || secondJumpAvaible == true)
+		if (controller.collisions.leftCol)
+		{
+			if (wallSliding && controller.collisions.leftCol.tag != "NoHit")
 			{
-				if (controller.collisions.below)
+				secondJumpAvaible = true;
+				controller.collisions.right = false;
+				controller.collisions.left = false;
+				if (wallDirX == directionalInput.x)
 				{
-					secondJumpAvaible = true;
-					controller.collisions.below = false;
+					velocity.x = -wallDirX* wallJumpClimb.x;
+					velocity.y = wallJumpClimb.y;
 				}
-				else {
-					secondJumpAvaible = false;
-				}
-				if (controller.collisions.slidingDownMaxSlope)
+				else if (directionalInput.x == 0)
 				{
-					if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
-					{ // not jumping against max slope
-						velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
-						velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
-					}
+					velocity.x = -wallDirX* wallJumpOff.x;
+					velocity.y = wallJumpOff.y;
 				}
-				else {
-					if (secondJumpAvaible)
+				else
+				{
+					velocity.x = -wallDirX* wallLeap.x;
+					velocity.y = wallLeap.y;
+				}
+			}
+		}
+		if (controller.collisions.below || secondJumpAvaible == true)
+			{
+					if (controller.collisions.below)
 					{
-						velocity.y = maxJumpVelocity;
+						secondJumpAvaible = true;
+						controller.collisions.below = false;
 					}
-					else {
-						velocity.y = maxJumpVelocity2ndJump;
+					else
+					{
+						secondJumpAvaible = false;
+					}
+					if (controller.collisions.slidingDownMaxSlope)
+					{
+						if (directionalInput.x != -Mathf.Sign(controller.collisions.slopeNormal.x))
+						{ // not jumping against max slope
+							velocity.y = maxJumpVelocity * controller.collisions.slopeNormal.y;
+							velocity.x = maxJumpVelocity * controller.collisions.slopeNormal.x;
+						}
+					}
+					else
+					{
+						if (secondJumpAvaible)
+						{
+							velocity.y = maxJumpVelocity;
+						}
+						else
+						{
+							velocity.y = maxJumpVelocity2ndJump;
+						}
 					}
 				}
-			}
-		}
 	}
 
 	public void OnJumpInputUp() {
@@ -185,6 +265,7 @@ public class Player : MonoBehaviour {
 	void CalculateVelocity() {
 		float targetVelocityX = directionalInput.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-		velocity.y += gravity * Time.deltaTime;
+		velocity.y += (gravity * Time.deltaTime) + (directionalInput.y);
+		//directionalInputAdd = new Vector2(0,0);
 	}
 }

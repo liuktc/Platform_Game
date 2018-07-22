@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour {
 		}
 		else
 		{
-			if (col.gameObject.layer == 9 && col.tag != "Enemy")
+			if (col.gameObject.layer == 9 && col.tag != "Enemy" && col.tag != "NoHit")
 			{
 				Destroy(false, col, false);
 			}

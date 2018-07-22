@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour {
 
-	[HideInInspector]
+	//[HideInInspector]
 	public float Angle;
+	//float add = 0;
 	float lastAngle;
 
 	public Text DebugText;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject Weapon_Pivot;
 	/*[HideInInspector]
 	public Collider2D Weapon_Collider;*/
@@ -19,16 +20,33 @@ public class WeaponController : MonoBehaviour {
 	public GameObject Weapon_Sprite;
 	[HideInInspector]
 	public WeaponStatus Weapon_Status;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject Player;
 
 	[HideInInspector]
 	public bool left, right,lastLeft,lastRight;
 
 	public GameObject Projectile;
+	public float FireRate;
+	private float LastFire;
+
+	public Animator Anim_Weapon;
+	public Animator Anim_Angle;
+
+	public float Attack_Force_x;
+	public float Attack_Force_y;
+	public float Attack_Force_Time;
+	public float Attack_Damage;
+	public float Attack_Vertical_Multiplicator;
+
+	public float AttackRate;
+	private float LastAttack;
+
+	public Animator UIAttackAnimator;
 
 	void Start()
 	{
+		//Anim = transform.FindChild("Weapon").GetComponent<Animator>()
 		Player = GameObject.FindWithTag("Player");
 		Weapon_Pivot = GameObject.FindWithTag("Weapon");
 		//Weapon_Collider = GameObject.Find("WeaponSprite_Collider").GetComponent<Collider2D>();
@@ -49,6 +67,8 @@ public class WeaponController : MonoBehaviour {
 		}*/
 
 		Angle = MouseAngle();
+		//add = 0;
+
 		ApplyAngle();
 
 		lastLeft = left;
@@ -98,7 +118,6 @@ public class WeaponController : MonoBehaviour {
 		{
 			return 360 - AngleTemp;
 		}
-
 		return 0;
 	}
 
@@ -145,16 +164,39 @@ public class WeaponController : MonoBehaviour {
 
 	public void Attack1()
 	{
-		Weapon_Status.Attack1 = true;
+		if (Time.time > AttackRate + LastAttack)
+		{
+			UIAttackAnimator.SetTrigger("Use");
+			Weapon_Status.Attack1 = true;
+			Debug.Log("Attack with angle = " + Angle);
+			Vector2 Force;
+			if (Player.GetComponent<Controller2D>().collisions.below == true)
+			{
+				Force = new Vector2(Mathf.Cos(Angle * Mathf.Deg2Rad) * Attack_Force_x * Time.deltaTime, Mathf.Sin(Angle * Mathf.Deg2Rad) * Attack_Force_y * Time.deltaTime * Attack_Vertical_Multiplicator);
+			}
+			else
+			{
+				Force = new Vector2(Mathf.Cos(Angle * Mathf.Deg2Rad) * Attack_Force_x * Time.deltaTime, Mathf.Sin(Angle * Mathf.Deg2Rad) * Attack_Force_y * Time.deltaTime);
+			}
+			Player.GetComponent<Player>().AddDirectionalInput(Force, Attack_Force_Time);
+			LastAttack = Time.time;
+			Anim_Weapon.SetTrigger("Attack");
+			Anim_Angle.SetTrigger("Attack");
+			//add += 30;
+		}
 	}
 
 	public void Attack2()
 	{
-		Weapon_Status.Attack2 = true;
-		GameObject instance;
-		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("HandSprite").gameObject.transform.position,Quaternion.Euler(0, 0, Angle));
-		instance.GetComponent<Projectile>().Fired_By_Player = true;
-		Destroy(instance, 5.0f);
+		if (Time.time > FireRate + LastFire)
+		{
+			Weapon_Status.Attack2 = true;
+			GameObject instance;
+			instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
+			instance.GetComponent<Projectile>().Fired_By_Player = true;
+			Destroy(instance, 5.0f);
+			LastFire = Time.time;
+		}
 	}
 
 	public void Defend()

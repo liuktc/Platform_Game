@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour {
 	void Update () {
 		if (ControlEnabled)
 		{
-			Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+			Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"),0);
 			player.SetDirectionalInput(directionalInput);
 		}
 
@@ -32,6 +32,7 @@ public class PlayerInput : MonoBehaviour {
 		if ((Input.GetAxis("Attack1") > 0 || Input.GetMouseButtonDown(0))&&ControlEnabled)
 		{
 			weapon.Attack1();
+			weapon.Stop_Defend();
 		}
 		if (((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(2))&&Attack2Active) && ControlEnabled)
 		{
