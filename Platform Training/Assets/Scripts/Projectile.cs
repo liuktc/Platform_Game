@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour {
 			}
 			else
 			{
-				if (col.gameObject.tag == "Weapon_Collider" && Weapon.GetComponent<WeaponController>().Weapon_Status.Defend == true)
+				if (col.gameObject.tag == "Weapon_Collider" && Weapon.GetComponent<WeaponController>().Weapon_Status.Defend == true && Fired_By_Player != true)
 				{
 					Destroy(false, col, true);
 				}

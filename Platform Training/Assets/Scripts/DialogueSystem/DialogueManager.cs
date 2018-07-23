@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour {
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
 		{
-			Debug.Log("Added letter " + letter);
+			//Debug.Log("Added letter " + letter);
 			dialogueText.text += letter;
 			yield return null;
 		}

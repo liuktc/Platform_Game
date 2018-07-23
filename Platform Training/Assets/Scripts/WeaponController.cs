@@ -13,11 +13,11 @@ public class WeaponController : MonoBehaviour {
 	public Text DebugText;
 
 	//[HideInInspector]
-	public GameObject Weapon_Pivot;
+	//public GameObject Weapon_Pivot;
 	/*[HideInInspector]
 	public Collider2D Weapon_Collider;*/
-	[HideInInspector]
-	public GameObject Weapon_Sprite;
+	//[HideInInspector]
+	//public GameObject Weapon_Sprite;
 	[HideInInspector]
 	public WeaponStatus Weapon_Status;
 	//[HideInInspector]
@@ -30,8 +30,8 @@ public class WeaponController : MonoBehaviour {
 	public float FireRate;
 	private float LastFire;
 
-	public Animator Anim_Weapon;
-	public Animator Anim_Angle;
+	/*public Animator Anim_Weapon;
+	public Animator Anim_Angle;*/
 
 	public float Attack_Force_x;
 	public float Attack_Force_y;
@@ -43,14 +43,16 @@ public class WeaponController : MonoBehaviour {
 	private float LastAttack;
 
 	public Animator UIAttackAnimator;
+	public Animator UIAttack2Animator;
+	public Animator WeaponAnimator;
 
 	void Start()
 	{
 		//Anim = transform.FindChild("Weapon").GetComponent<Animator>()
 		Player = GameObject.FindWithTag("Player");
-		Weapon_Pivot = GameObject.FindWithTag("Weapon");
+		//Weapon_Pivot = GameObject.FindWithTag("Weapon");
 		//Weapon_Collider = GameObject.Find("WeaponSprite_Collider").GetComponent<Collider2D>();
-		Weapon_Sprite = GameObject.Find("WeaponSprite_Collider");
+		//Weapon_Sprite = GameObject.Find("WeaponSprite_Collider");
 		if (Input.GetJoystickNames().Length > 0)
 		{
 			Debug.Log("Controller connected");
@@ -73,6 +75,8 @@ public class WeaponController : MonoBehaviour {
 
 		lastLeft = left;
 		lastRight = right;
+
+		UIAttack2Animator.SetBool("Enabled", Player.GetComponent<PlayerInput>().Attack2Active);
 	}
 
 	float JoystickAngle()
@@ -152,13 +156,17 @@ public class WeaponController : MonoBehaviour {
 		{
 			right = true;
 			left = false;
-			Weapon_Pivot.transform.localScale = new Vector3(1, 1, 1);
+
+			GameObject.FindWithTag("Weapon").transform.localScale = new Vector3(1, 1, 1);
 		}
 		if ((Angle > 90 && Angle <= 180) || (Angle < 270 && Angle >= 180))
 		{
 			right = false;
 			left = true;
-			Weapon_Pivot.transform.localScale = new Vector3(1, -1, 1);
+			GameObject.FindWithTag("Weapon").transform.localScale = new Vector3(1, -1, 1);
+			if (GameObject.FindWithTag("Weapon").transform.localScale.y == -1){
+				Debug.Log("Flipped Correctly");
+			}
 		}
 	}
 
@@ -168,7 +176,7 @@ public class WeaponController : MonoBehaviour {
 		{
 			UIAttackAnimator.SetTrigger("Use");
 			Weapon_Status.Attack1 = true;
-			Debug.Log("Attack with angle = " + Angle);
+			//Debug.Log("Attack with angle = " + Angle);
 			Vector2 Force;
 			if (Player.GetComponent<Controller2D>().collisions.below == true)
 			{
@@ -180,8 +188,15 @@ public class WeaponController : MonoBehaviour {
 			}
 			Player.GetComponent<Player>().AddDirectionalInput(Force, Attack_Force_Time);
 			LastAttack = Time.time;
-			Anim_Weapon.SetTrigger("Attack");
-			Anim_Angle.SetTrigger("Attack");
+			//Anim_Weapon.SetTrigger("Attack");
+			if (Angle >= 90 && Angle <= 270)
+			{
+				WeaponAnimator.SetTrigger("Attack_Left");
+			}
+			else
+			{
+				WeaponAnimator.SetTrigger("Attack_Right");
+			}
 			//add += 30;
 		}
 	}
@@ -190,9 +205,10 @@ public class WeaponController : MonoBehaviour {
 	{
 		if (Time.time > FireRate + LastFire)
 		{
+			UIAttack2Animator.SetTrigger("Use");
 			Weapon_Status.Attack2 = true;
 			GameObject instance;
-			instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
+			instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Pivot").Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
 			instance.GetComponent<Projectile>().Fired_By_Player = true;
 			Destroy(instance, 5.0f);
 			LastFire = Time.time;
@@ -202,12 +218,14 @@ public class WeaponController : MonoBehaviour {
 	public void Defend()
 	{
 		Weapon_Status.Defend = true;
-		Weapon_Sprite.transform.localPosition = new Vector3(Weapon_Sprite.transform.localPosition.x, 0.0f, Weapon_Sprite.transform.localPosition.z);	}
+		WeaponAnimator.SetBool("IsDefending", true);
+		//Weapon_Sprite.transform.localPosition = new Vector3(Weapon_Sprite.transform.localPosition.x, 0.0f, Weapon_Sprite.transform.localPosition.z);	}
 
 	public void Stop_Defend()
 	{
 		Weapon_Status.Defend = false;
-		Weapon_Sprite.transform.localPosition = new Vector3(Weapon_Sprite.transform.localPosition.x, 0.35f, Weapon_Sprite.transform.localPosition.z);	}
+		WeaponAnimator.SetBool("IsDefending", false);
+		//Weapon_Sprite.transform.localPosition = new Vector3(Weapon_Sprite.transform.localPosition.x, 0.35f, Weapon_Sprite.transform.localPosition.z);	}
 
 	public struct WeaponStatus {
 		public bool Attack1, Attack2, Defend;
