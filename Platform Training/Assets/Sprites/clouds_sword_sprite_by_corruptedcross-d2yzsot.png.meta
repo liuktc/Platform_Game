@@ -1,0 +1,238 @@
+fileFormatVersion: 2
+guid: 462cd09552a4ef64a81be75107eb7669
+timeCreated: 1532424974
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: clouds_sword_sprite_by_corruptedcross-d2yzsot_0
+    21300002: clouds_sword_sprite_by_corruptedcross-d2yzsot_1
+    21300004: clouds_sword_sprite_by_corruptedcross-d2yzsot_2
+    21300006: clouds_sword_sprite_by_corruptedcross-d2yzsot_3
+    21300008: clouds_sword_sprite_by_corruptedcross-d2yzsot_4
+    21300010: clouds_sword_sprite_by_corruptedcross-d2yzsot_5
+    21300012: clouds_sword_sprite_by_corruptedcross-d2yzsot_6
+    21300014: clouds_sword_sprite_by_corruptedcross-d2yzsot_7
+    21300016: clouds_sword_sprite_by_corruptedcross-d2yzsot_8
+    21300018: clouds_sword_sprite_by_corruptedcross-d2yzsot_9
+    21300020: clouds_sword_sprite_by_corruptedcross-d2yzsot_10
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 251
+        width: 12
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 313
+        width: 13
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 294
+        width: 35
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_3
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 295
+        width: 36
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 184
+        width: 12
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 246
+        width: 13
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 166
+        width: 12
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_7
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 66
+        width: 13
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 89
+        width: 23
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_9
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 7
+        width: 23
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: clouds_sword_sprite_by_corruptedcross-d2yzsot_10
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 32
+        width: 23
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

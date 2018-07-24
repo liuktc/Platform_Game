@@ -25,7 +25,7 @@ public class PowerUp : MonoBehaviour {
 	{
 		if (col.tag == "Player")
 		{
-			Debug.Log("Yeee");
+			//Debug.Log("Yeee");
 			if (PowerUpType == Type.ShurikenActivation)
 			{
 				ShurikenActivation(col.gameObject);

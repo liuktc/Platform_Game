@@ -41,7 +41,7 @@ public class DialogueController : MonoBehaviour {
 			if (Sentences_Speaked < Number_Of_Speech)
 			{
 				Sentences_Speaked++;
-				Debug.Log(Sentences_Speaked + "nd dialogue");
+				//Debug.Log(Sentences_Speaked + "nd dialogue");
 				transform.Find(Sentences_Speaked + "_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
 			}
 			else
@@ -54,7 +54,7 @@ public class DialogueController : MonoBehaviour {
 				{
 					if (Loop_Last_Speech == true)
 					{
-						Debug.Log(Sentences_Speaked + "nd dialogue");
+						//Debug.Log(Sentences_Speaked + "nd dialogue");
 						transform.Find(Sentences_Speaked + "_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
 					}
 				}

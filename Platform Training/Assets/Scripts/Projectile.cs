@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour {
 		if (body == true)
 		{
 			instance = (GameObject)Instantiate(Destroy_Animation_Body, this.transform.FindChild("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
-			instance.transform.parent = GameObject.FindWithTag("Player").transform;
+			instance.transform.parent = col.transform;
 		}
 		else
 		{

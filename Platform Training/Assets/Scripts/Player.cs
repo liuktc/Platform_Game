@@ -132,7 +132,7 @@ public class Player : MonoBehaviour {
 	public void AddDirectionalInput(Vector2 Force, float time)
 	{
 		directionalInputAdd = Force;
-		Debug.Log("Added " + directionalInputAdd);
+		//Debug.Log("Added " + directionalInputAdd);
         StartCoroutine(Example(time));
 		//directionalInputAdd = new Vector2(0, 0);
 	}

@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour {
 
 	public void GetDamage(float damage)
 	{
-		Debug.Log(damage + " damage");
+		//Debug.Log(damage + " damage");
 		Health -= damage;
 	}
 	public void SetMaxLife()

@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114152382358821966}
   - component: {fileID: 61338521411796736}
   - component: {fileID: 50772190516047134}
+  - component: {fileID: 95291797789631198}
   m_Layer: 0
   m_Name: Shuriken
   m_TagString: Projectile
@@ -106,6 +107,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.17, y: 0.18}
+--- !u!95 &95291797789631198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986917534970806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44ac36375e59aa0499ef10121415e0b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114152382358821966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,8 +140,9 @@ MonoBehaviour:
   Destroy_Animation_Body: {fileID: 1462735167203224, guid: 65aab7bb574261d41921e124c7bb0e0c,
     type: 2}
   Destroy_Delay: 0
-  Damage: 30
-  speed: 10
+  Damage: 50
+  speed: 20
+  Fired_By_Player: 0
 --- !u!212 &212781482375724630
 SpriteRenderer:
   m_ObjectHideFlags: 1

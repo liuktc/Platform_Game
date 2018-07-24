@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 		if (Left && Left.distance == 0)
 		{
 			Grounded.Left = true;
-			Debug.Log("Grounded Down");
+			//Debug.Log("Grounded Down");
 		}
 
 		RaycastHit2D Right = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, GroundingSurface);

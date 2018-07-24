@@ -23,7 +23,8 @@ public class Enemy_Status : MonoBehaviour {
 
 	public void GetDamage(float damage)
 	{
-		Debug.Log(damage + " damage");
+		//Debug.Log(damage + " damage");
+		GetComponent<Enemy>().GetAttack2();
 		Health -= damage;
 	}
 	public void SetMaxLife()
