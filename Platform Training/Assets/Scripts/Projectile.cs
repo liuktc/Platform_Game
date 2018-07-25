@@ -22,12 +22,12 @@ public class Projectile : MonoBehaviour {
 		GameObject instance;
 		if (body == true)
 		{
-			instance = (GameObject)Instantiate(Destroy_Animation_Body, this.transform.FindChild("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+			instance = (GameObject)Instantiate(Destroy_Animation_Body, this.transform.Find("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
 			instance.transform.parent = col.transform;
 		}
 		else
 		{
-			instance = (GameObject)Instantiate(Destroy_Animation_NotBody, this.transform.FindChild("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+			instance = (GameObject)Instantiate(Destroy_Animation_NotBody, this.transform.Find("Collision_Point").gameObject.transform.position, new Quaternion(0, 0, 0, 0));
 			if (weapon)
 			{
 				instance.transform.parent = GameObject.FindWithTag("Player").transform;

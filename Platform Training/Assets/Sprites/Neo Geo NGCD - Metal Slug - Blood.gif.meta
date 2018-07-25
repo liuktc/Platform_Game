@@ -1,0 +1,308 @@
+fileFormatVersion: 2
+guid: e072f696397c00443a96622915475aa8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Neo Geo NGCD - Metal Slug - Blood_0
+    21300002: Neo Geo NGCD - Metal Slug - Blood_1
+    21300004: Neo Geo NGCD - Metal Slug - Blood_2
+    21300006: Neo Geo NGCD - Metal Slug - Blood_3
+    21300008: Neo Geo NGCD - Metal Slug - Blood_4
+    21300010: Neo Geo NGCD - Metal Slug - Blood_5
+    21300012: Neo Geo NGCD - Metal Slug - Blood_6
+    21300014: Neo Geo NGCD - Metal Slug - Blood_7
+    21300016: Neo Geo NGCD - Metal Slug - Blood_8
+    21300018: Neo Geo NGCD - Metal Slug - Blood_9
+    21300020: Neo Geo NGCD - Metal Slug - Blood_10
+    21300022: Neo Geo NGCD - Metal Slug - Blood_11
+    21300024: Neo Geo NGCD - Metal Slug - Blood_12
+    21300026: Neo Geo NGCD - Metal Slug - Blood_13
+    21300028: Neo Geo NGCD - Metal Slug - Blood_14
+    21300030: Neo Geo NGCD - Metal Slug - Blood_15
+    21300032: Neo Geo NGCD - Metal Slug - Blood_16
+    21300034: Neo Geo NGCD - Metal Slug - Blood_17
+    21300036: Neo Geo NGCD - Metal Slug - Blood_18
+    21300038: Neo Geo NGCD - Metal Slug - Blood_19
+    21300040: Neo Geo NGCD - Metal Slug - Blood_20
+    21300042: Neo Geo NGCD - Metal Slug - Blood_21
+    21300044: Neo Geo NGCD - Metal Slug - Blood_22
+    21300046: Neo Geo NGCD - Metal Slug - Blood_23
+    21300048: Neo Geo NGCD - Metal Slug - Blood_24
+    21300050: Neo Geo NGCD - Metal Slug - Blood_25
+    21300052: Neo Geo NGCD - Metal Slug - Blood_26
+    21300054: Neo Geo NGCD - Metal Slug - Blood_27
+    21300056: Neo Geo NGCD - Metal Slug - Blood_28
+    21300058: Neo Geo NGCD - Metal Slug - Blood_29
+    21300060: Neo Geo NGCD - Metal Slug - Blood_30
+    21300062: Neo Geo NGCD - Metal Slug - Blood_31
+    21300064: Neo Geo NGCD - Metal Slug - Blood_32
+    21300066: Neo Geo NGCD - Metal Slug - Blood_33
+    21300068: Neo Geo NGCD - Metal Slug - Blood_34
+    21300070: Neo Geo NGCD - Metal Slug - Blood_35
+    21300072: Neo Geo NGCD - Metal Slug - Blood_36
+    21300074: Neo Geo NGCD - Metal Slug - Blood_37
+    21300076: Neo Geo NGCD - Metal Slug - Blood_38
+    21300078: Neo Geo NGCD - Metal Slug - Blood_39
+  externalObjects: {}
+  serializedVersion: 6
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 770b86ca969bdc4449e1fd220e69dc58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 112
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0a77cb420c70442adb0edb5f7f4e21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_2
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 112
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7668a3fd1ce2a448232f417d642999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_3
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 112
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9880db314f14a7d479c2de54a39dc70a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 117
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da983d457505df84791a87c21236365f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_5
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 0
+        width: 120
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639a0de85056bc34e990a8e219c1e0b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_6
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62537d6cb96936e48b0a676d469fa44b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Neo Geo NGCD - Metal Slug - Blood_7
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 0
+        width: 126
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0b48c7d3d38894b936983251f409be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 63be9c2af12e4e645b0f9a2940a2d351
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

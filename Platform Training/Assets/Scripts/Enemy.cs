@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 	float Angle;
 	GameObject Player;
 	GameObject Weapon;
@@ -15,7 +16,8 @@ public class Enemy : MonoBehaviour {
 
 	bool isShooting;
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		Player = GameObject.FindWithTag("Player");
 		Weapon = gameObject.transform.Find("Hand").gameObject;
 		//InvokeRepeating("Shoot", 0f, Shoot_Delay);
@@ -24,25 +26,51 @@ public class Enemy : MonoBehaviour {
 	{
 		return Mathf.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));	}
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		CalculateAngle();
 		ApplyAngle();
 		CalculateFlip();
-		Debug.Log(isShooting);
-		if (distanceToShoot < distance(transform.position.x, transform.position.y, Player.transform.position.x, Player.transform.position.y) && isShooting == false)
+		//Debug.Log(isShooting);
+		Vector2 from = new Vector2(transform.position.x, transform.position.y);
+		Vector2 to = new Vector2(Player.transform.position.x, Player.transform.position.y);
+		Vector2 dir = to - from;
+		int layerMask = ~(LayerMask.GetMask("Projectile"));
+		RaycastHit2D hit = Physics2D.Raycast(from, dir, Mathf.Infinity,layerMask);
+		Debug.Log(hit.transform.tag);
+		if (hit.transform.tag == "Weapon_Collider")
 		{
-			Debug.Log("Invoking Shoot");
-			isShooting = true;
-			InvokeRepeating("Shoot", 0f, Shoot_Delay);
+			Debug.Log("Collision whit weapon");
+		}
+		if (hit.transform.tag == "Player" || hit.transform.tag == "Weapon_Collider")
+		{
+			if (distanceToShoot > distance(transform.position.x, transform.position.y, Player.transform.position.x, Player.transform.position.y) && isShooting == false)
+			{
+				if (hit.transform.tag == "Player")
+				{
+					isShooting = true;
+					InvokeRepeating("Shoot", 0f, Shoot_Delay);
+				}
+				else
+				{
+					isShooting = false;
+					CancelInvoke("Shoot");
+				}
+			}
+			else
+			{
+				if (distanceToShoot < distance(transform.position.x, transform.position.y, Player.transform.position.x, Player.transform.position.y))
+				{
+					//Debug.Log("Cancel Shoot");
+					isShooting = false;
+					CancelInvoke("Shoot");
+				}
+			}
 		}
 		else
 		{
-			if (distanceToShoot > distance(transform.position.x, transform.position.y, Player.transform.position.x, Player.transform.position.y))
-			{
-				Debug.Log("Cancel Shoot");
-				isShooting = false;
-				CancelInvoke("Shoot");
-			}
+			isShooting = false;
+            CancelInvoke("Shoot");
 		}
 	}
 
@@ -77,7 +105,7 @@ public class Enemy : MonoBehaviour {
 
 	void ApplyAngle()
 	{
-		Weapon.transform.eulerAngles = new Vector3(0,0,Angle);
+		Weapon.transform.eulerAngles = new Vector3(0, 0, Angle);
 	}
 
 	void CalculateFlip()
@@ -90,19 +118,24 @@ public class Enemy : MonoBehaviour {
 		{
 			GetComponent<SpriteRenderer>().flipX = true;
 		}	}
+	void OnDrawGizmosSelected()
+	{
+		// Display the explosion radius when selected
+		Gizmos.color = new Color(255, 255, 0, 0.3f);
+		Gizmos.DrawSphere(transform.position, distanceToShoot);	}
 
 	void Shoot()
 	{
 		GameObject instance;
-		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Hand").Find("HandSprite").gameObject.transform.position,Quaternion.Euler(0, 0, Angle));
+		instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Hand").Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
 		instance.GetComponent<Projectile>().Fired_By_Player = false;
 		Destroy(instance, 5.0f);
 	}
 
-	public void GetAttack1(float damage, float force)
+	public void GetAttack1(float damage)
 	{
 		GetComponent<Enemy_Status>().GetDamage(damage);
-		GetComponent<Animator>().SetTrigger("Hit");
+
 	}
 	public void GetAttack2()
 	{

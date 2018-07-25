@@ -6,6 +6,7 @@ public class Enemy_Status : MonoBehaviour {
 	public float Max_Health;
 	[HideInInspector]
 	public float Health;
+	public GameObject DieEffect;
 	// Use this for initialization
 	void Start()
 	{
@@ -34,6 +35,8 @@ public class Enemy_Status : MonoBehaviour {
 
 	public void Die()
 	{
+		GameObject instance = (GameObject)Instantiate(DieEffect, transform.position, new Quaternion(0, 0, 0, 0));
+		Destroy(instance, instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 		Destroy(gameObject);
 	}
 }
