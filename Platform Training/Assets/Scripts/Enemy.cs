@@ -37,11 +37,11 @@ public class Enemy : MonoBehaviour
 		Vector2 dir = to - from;
 		int layerMask = ~(LayerMask.GetMask("Projectile"));
 		RaycastHit2D hit = Physics2D.Raycast(from, dir, Mathf.Infinity,layerMask);
-		Debug.Log(hit.transform.tag);
-		if (hit.transform.tag == "Weapon_Collider")
+		//Debug.Log(hit.transform.tag);
+		/*if (hit.transform.tag == "Weapon_Collider")
 		{
 			Debug.Log("Collision whit weapon");
-		}
+		}*/
 		if (hit.transform.tag == "Player" || hit.transform.tag == "Weapon_Collider")
 		{
 			if (distanceToShoot > distance(transform.position.x, transform.position.y, Player.transform.position.x, Player.transform.position.y) && isShooting == false)
@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
 		Destroy(instance, 5.0f);
 	}
 
-	public void GetAttack1(float damage)
+	/*public void GetAttack1(float damage)
 	{
 		GetComponent<Enemy_Status>().GetDamage(damage);
 
@@ -140,5 +140,5 @@ public class Enemy : MonoBehaviour
 	public void GetAttack2()
 	{
 		GetComponent<Animator>().SetTrigger("Hit");
-	}
+	}*/
 }

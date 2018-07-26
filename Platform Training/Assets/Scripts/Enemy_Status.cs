@@ -7,6 +7,7 @@ public class Enemy_Status : MonoBehaviour {
 	[HideInInspector]
 	public float Health;
 	public GameObject DieEffect;
+	bool dead = false;
 	// Use this for initialization
 	void Start()
 	{
@@ -25,7 +26,7 @@ public class Enemy_Status : MonoBehaviour {
 	public void GetDamage(float damage)
 	{
 		//Debug.Log(damage + " damage");
-		GetComponent<Enemy>().GetAttack2();
+		HitAnimation();
 		Health -= damage;
 	}
 	public void SetMaxLife()
@@ -35,8 +36,17 @@ public class Enemy_Status : MonoBehaviour {
 
 	public void Die()
 	{
-		GameObject instance = (GameObject)Instantiate(DieEffect, transform.position, new Quaternion(0, 0, 0, 0));
-		Destroy(instance, instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-		Destroy(gameObject);
+		if (!dead)
+		{
+			dead = true;
+			GameObject instance = (GameObject)Instantiate(DieEffect, transform.position, new Quaternion(0, 0, 0, 0));
+			Camera.main.GetComponent<ZoomScript>().ZoomTo(transform);
+			Destroy(instance, instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+			Destroy(gameObject, (Camera.main.GetComponent<ZoomScript>().zoomTime + Camera.main.GetComponent<ZoomScript>().deZoomTime)*2);
+		}
+	}
+	public void HitAnimation()
+	{
+		GetComponent<Animator>().SetTrigger("Hit");
 	}
 }

@@ -223,12 +223,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 303717709}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &311774920 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114661936760404412, guid: 213b2a053ad34f5418fd9a8db18df354,
-    type: 2}
-  m_PrefabInternal: {fileID: 645598319}
-  m_Script: {fileID: 11500000, guid: dc8c410b957f7a848aa2642f928f2124, type: 3}
 --- !u!1001 &645598319
 Prefab:
   m_ObjectHideFlags: 0
@@ -268,6 +262,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114185793092790508, guid: 213b2a053ad34f5418fd9a8db18df354,
+        type: 2}
+      propertyPath: Life_Slider
+      value: 
+      objectReference: {fileID: 245590033}
     - target: {fileID: 114661936760404412, guid: 213b2a053ad34f5418fd9a8db18df354,
         type: 2}
       propertyPath: UIAttackAnimator
@@ -278,25 +277,6 @@ Prefab:
       propertyPath: UIAttack2Animator
       value: 
       objectReference: {fileID: 1918500679}
-    - target: {fileID: 114185793092790508, guid: 213b2a053ad34f5418fd9a8db18df354,
-        type: 2}
-      propertyPath: Life_Slider
-      value: 
-      objectReference: {fileID: 245590033}
-    - target: {fileID: 4724965693323456, guid: 213b2a053ad34f5418fd9a8db18df354, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114296088748867134, guid: 213b2a053ad34f5418fd9a8db18df354,
-        type: 2}
-      propertyPath: collisionMask.m_Bits
-      value: 2560
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661936760404412, guid: 213b2a053ad34f5418fd9a8db18df354,
-        type: 2}
-      propertyPath: Attack_Damage
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 213b2a053ad34f5418fd9a8db18df354, type: 2}
   m_IsPrefabAsset: 0
@@ -455,25 +435,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa65bcac42df0524c993b8466c27e638, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &823350293 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1852822878841718, guid: 213b2a053ad34f5418fd9a8db18df354,
-    type: 2}
-  m_PrefabInternal: {fileID: 645598319}
---- !u!114 &823350297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 823350293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b45158e6473a93a4a9eb3e00002c0c63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  w: {fileID: 311774920}
-  DamageEffect: {fileID: 1745933825766102, guid: 93b545420a487264fa3a84f39cf32e00,
-    type: 2}
 --- !u!1 &838424906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1723658773351468, guid: 56d2d9220352f104292f602f383eaa79,
@@ -1842,10 +1803,6 @@ Prefab:
     - target: {fileID: 1434822248483962, guid: aa65bcac42df0524c993b8466c27e638, type: 2}
       propertyPath: m_Name
       value: Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434822248483962, guid: aa65bcac42df0524c993b8466c27e638, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa65bcac42df0524c993b8466c27e638, type: 2}
