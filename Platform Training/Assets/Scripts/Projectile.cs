@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour {
 
 	public bool Fired_By_Player;
 
+	public string hitSound;
+
 
 	void Start()
 	{
@@ -33,6 +35,7 @@ public class Projectile : MonoBehaviour {
 				instance.transform.parent = GameObject.FindWithTag("Player").transform;
 			}
 		}
+		GameObject.FindObjectOfType<AudioManager>().Play(hitSound);
 		Destroy(instance, instance.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length +Destroy_Delay);
 		Destroy(gameObject, 0.0f);
 	}

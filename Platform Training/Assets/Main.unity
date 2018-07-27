@@ -223,6 +223,93 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 303717709}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &399742190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399742192}
+  - component: {fileID: 399742191}
+  m_Layer: 0
+  m_Name: Audio_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &399742191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 399742190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688138edd5c24b440910fb2f1cc20d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: Main_Theme
+    clip: {fileID: 8300000, guid: 4b8532d369839624db16dce5c7bcb1ca, type: 3}
+    volume: 0.2
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Enemy_Death
+    clip: {fileID: 8300000, guid: e0d1c8c43c6adf040b3f75f2684e1b24, type: 3}
+    volume: 0.5
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Shuriken_Throw
+    clip: {fileID: 8300000, guid: 979e7db6e84f1d049956c90dd38c8f43, type: 3}
+    volume: 0.5
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Enemy_Death
+    clip: {fileID: 8300000, guid: e0d1c8c43c6adf040b3f75f2684e1b24, type: 3}
+    volume: 0.5
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Shuriken_Hit
+    clip: {fileID: 8300000, guid: 8efaa83bc5a9df4459a138b08a4af04d, type: 3}
+    volume: 0.5
+    volumeVariance: 0.5
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!4 &399742192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 399742190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.37, y: 0.74, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &645598319
 Prefab:
   m_ObjectHideFlags: 0
@@ -456,7 +543,8 @@ MonoBehaviour:
   moveTime: 0.4
   deZoomTime: 0.4
   resetMoveTime: 0.4
-  pointToZoom: {fileID: 1545135533}
+  slowdownFactor: 0
+  slowdownLenght: 0
 --- !u!1001 &898680900
 Prefab:
   m_ObjectHideFlags: 0
@@ -1434,11 +1522,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1542389692}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1545135533 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4555089343938956, guid: aa65bcac42df0524c993b8466c27e638,
-    type: 2}
-  m_PrefabInternal: {fileID: 1998321797}
 --- !u!1 &1562684569
 GameObject:
   m_ObjectHideFlags: 0

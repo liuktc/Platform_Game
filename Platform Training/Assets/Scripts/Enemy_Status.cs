@@ -38,6 +38,7 @@ public class Enemy_Status : MonoBehaviour {
 	{
 		if (!dead)
 		{
+			FindObjectOfType<AudioManager>().Play("Enemy_Death");
 			dead = true;
 			GameObject instance = (GameObject)Instantiate(DieEffect, transform.position, new Quaternion(0, 0, 0, 0));
 			Camera.main.GetComponent<ZoomScript>().ZoomTo(transform);

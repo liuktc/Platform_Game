@@ -208,6 +208,7 @@ public class WeaponController : MonoBehaviour {
 	{
 		if (Time.time > FireRate + LastFire)
 		{
+			GameObject.FindObjectOfType<AudioManager>().Play("Shuriken_Throw");
 			UIAttack2Animator.SetTrigger("Use");
 			Weapon_Status.Attack2 = true;
 			GameObject instance;

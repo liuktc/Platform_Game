@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81de9558679394d24b9a80bed2b095c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack2Active: 1
+  Attack2Active: 0
   ControlEnabled: 1
 --- !u!114 &114296088748867134
 MonoBehaviour:
