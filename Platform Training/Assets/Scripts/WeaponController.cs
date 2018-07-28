@@ -33,14 +33,23 @@ public class WeaponController : MonoBehaviour {
 	/*public Animator Anim_Weapon;
 	public Animator Anim_Angle;*/
 
-	public float Attack_Force_x;
-	public float Attack_Force_y;
-	public float Attack_Force_Time;
-	public float Attack_Damage;
-	public float Attack_Vertical_Multiplicator;
+	/*public float Attack1_Force_x;
+	public float Attack1_Force_y;
+	public float Attack1_Force_Time;
+	public float Attack1_Damage;
+	public float Attack1_Vertical_Multiplicator;
 
-	public float AttackRate;
-	private float LastAttack;
+	public float Attack1Rate;
+	private float LastAttack1;
+
+	public float Attack3Rate;
+	private float LastAttack3;*/
+
+	public Attack[] attackList = new Attack[2];
+	[HideInInspector]
+	public bool isAttacking;
+	[HideInInspector]
+	public int attackIndex;
 
 	public Animator UIAttackAnimator;
 	public Animator UIAttack2Animator;
@@ -169,24 +178,52 @@ public class WeaponController : MonoBehaviour {
 		}
 	}
 
-	public void Attack1()
+	public void Attack(int index)
 	{
-		if (Time.time > AttackRate + LastAttack)
+		if (Time.time > attackList[index].attackRate + attackList[index].lastAttack)
+		{
+			attackIndex = index;
+			isAttacking = true;
+			AddForce(index);
+			attackList[index].lastAttack = Time.time;
+			if (attackList[index].isDirectional)
+			{
+				if (leftAngle())
+				{
+					WeaponAnimator.SetTrigger(attackList[index].triggerAnimationNameLeft);
+				}
+				else
+				{
+					WeaponAnimator.SetTrigger(attackList[index].triggerAnimationNameRight);
+				}
+			}
+			else
+			{
+				WeaponAnimator.SetTrigger(attackList[index].triggerAnimationName);
+			}
+		}
+	}
+	public void StopAttack()
+	{
+		isAttacking = false;
+	}
+	bool leftAngle()
+	{
+		if (Angle >= 90 && Angle <= 270)
+		{
+			return true;
+		}
+		return false;
+	}
+	/*public void Attack1()
+	{
+		if (Time.time > Attack1Rate + LastAttack1)
 		{
 			UIAttackAnimator.SetTrigger("Use");
 			Weapon_Status.Attack1 = true;
 			//Debug.Log("Attack with angle = " + Angle);
-			Vector2 Force;
-			if (Player.GetComponent<Controller2D>().collisions.below == true)
-			{
-				Force = new Vector2(Mathf.Cos(Angle * Mathf.Deg2Rad) * Attack_Force_x * Time.deltaTime, Mathf.Sin(Angle * Mathf.Deg2Rad) * Attack_Force_y * Time.deltaTime * Attack_Vertical_Multiplicator);
-			}
-			else
-			{
-				Force = new Vector2(Mathf.Cos(Angle * Mathf.Deg2Rad) * Attack_Force_x * Time.deltaTime, Mathf.Sin(Angle * Mathf.Deg2Rad) * Attack_Force_y * Time.deltaTime);
-			}
-			Player.GetComponent<Player>().AddDirectionalInput(Force, Attack_Force_Time);
-			LastAttack = Time.time;
+			LastAttack1 = Time.time;
+			//AddForce();
 			//Anim_Weapon.SetTrigger("Attack");
 			if (Angle >= 90 && Angle <= 270)
 			{
@@ -202,9 +239,9 @@ public class WeaponController : MonoBehaviour {
 	public void Attack1Stop()
 	{
 		Weapon_Status.Attack1 = false;
-	}
+	}*/
 
-	public void Attack2()
+	public void AttackThrow()
 	{
 		if (Time.time > FireRate + LastFire)
 		{
@@ -218,6 +255,21 @@ public class WeaponController : MonoBehaviour {
 			LastFire = Time.time;
 		}
 	}
+
+	/*public void Attack2()
+	{
+		if (Time.time > Attack3Rate + LastAttack3)
+		{
+			WeaponAnimator.SetTrigger("Lunge");
+			Weapon_Status.Attack2 = true;
+			LastAttack1 = Time.time;
+			//AddForce();
+		}
+	}
+	public void Attack3Stop()
+	{
+		Weapon_Status.Attack2 = false;
+	}*/
 
 	public void Defend()
 	{
@@ -237,5 +289,19 @@ public class WeaponController : MonoBehaviour {
 		{
 			Attack1 = Attack2 = Defend = false;
 		}
+	}
+
+	public void AddForce(int i)
+	{
+		Vector2 Force;
+		if (Player.GetComponent<Controller2D>().collisions.below)
+		{
+			Force = new Vector2(Mathf.Cos(Angle * Mathf.Deg2Rad) * attackList[i].attack_Force_x * Time.deltaTime, Mathf.Sin(Angle * Mathf.Deg2Rad) * attackList[i].attack_Force_y * Time.deltaTime * attackList[i].attack_Vertical_Multiplicator);
+		}
+		else
+		{
+			Force = new Vector2(Mathf.Cos(Angle* Mathf.Deg2Rad) * attackList[i].attack_Force_x* Time.deltaTime, Mathf.Sin(Angle* Mathf.Deg2Rad) * attackList[i].attack_Force_y* Time.deltaTime);
+		}
+		Player.GetComponent<Player>().AddDirectionalInput(Force, attackList[i].attack_Force_Time);
 	}
 }

@@ -31,16 +31,20 @@ public class PlayerInput : MonoBehaviour {
 		}
 		if ((Input.GetAxis("Attack1") > 0 || Input.GetMouseButtonDown(0))&&ControlEnabled)
 		{
-			weapon.Attack1();
+			weapon.Attack(0);
 			weapon.Stop_Defend();
 		}
 		if (((Input.GetKeyDown(KeyCode.Joystick1Button5) || Input.GetMouseButtonDown(2))&&Attack2Active) && ControlEnabled)
 		{
-			weapon.Attack2();
+			weapon.AttackThrow();
 		}
 		if ((Input.GetAxis("Defend") > 0 || Input.GetMouseButtonDown(1)) && ControlEnabled)
 		{
 			weapon.Defend();
+		}
+		if (Input.GetKeyDown(KeyCode.V) && ControlEnabled)
+		{
+			weapon.Attack(1);
 		}
 		/*if (Input.GetJoystickNames().Length > 0)
 		{

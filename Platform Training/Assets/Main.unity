@@ -223,93 +223,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 303717709}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &399742190
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 399742192}
-  - component: {fileID: 399742191}
-  m_Layer: 0
-  m_Name: Audio_Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &399742191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 399742190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688138edd5c24b440910fb2f1cc20d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 0}
-  sounds:
-  - name: Main_Theme
-    clip: {fileID: 8300000, guid: 4b8532d369839624db16dce5c7bcb1ca, type: 3}
-    volume: 0.2
-    volumeVariance: 0.5
-    pitch: 1
-    pitchVariance: 0
-    loop: 1
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: Enemy_Death
-    clip: {fileID: 8300000, guid: e0d1c8c43c6adf040b3f75f2684e1b24, type: 3}
-    volume: 0.5
-    volumeVariance: 0.5
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: Shuriken_Throw
-    clip: {fileID: 8300000, guid: 979e7db6e84f1d049956c90dd38c8f43, type: 3}
-    volume: 0.5
-    volumeVariance: 0.5
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: Enemy_Death
-    clip: {fileID: 8300000, guid: e0d1c8c43c6adf040b3f75f2684e1b24, type: 3}
-    volume: 0.5
-    volumeVariance: 0.5
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: Shuriken_Hit
-    clip: {fileID: 8300000, guid: 8efaa83bc5a9df4459a138b08a4af04d, type: 3}
-    volume: 0.5
-    volumeVariance: 0.5
-    pitch: 1
-    pitchVariance: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
---- !u!4 &399742192
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 399742190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.37, y: 0.74, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &645598319
 Prefab:
   m_ObjectHideFlags: 0
@@ -598,6 +511,11 @@ Prefab:
         type: 2}
       propertyPath: orthographic size
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114841360407619592, guid: 56d2d9220352f104292f602f383eaa79,
+        type: 2}
+      propertyPath: zoom
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d2d9220352f104292f602f383eaa79, type: 2}
@@ -1597,6 +1515,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1606787782
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319924285547750, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab2d77e58e22fb04e9e59b0010e8db82, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!95 &1918500679 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95121120854583490, guid: e9047da792e07b5439f2435499bc27c5,

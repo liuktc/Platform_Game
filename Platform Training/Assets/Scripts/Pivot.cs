@@ -7,7 +7,7 @@ public class Pivot : MonoBehaviour {
 	{
 		if (GameObject.FindWithTag("Hand"))
 		{
-			GameObject.FindWithTag("Hand").GetComponent<WeaponController>().Attack1Stop();
+			GameObject.FindWithTag("Hand").GetComponent<WeaponController>().StopAttack();
 		}
 	}
 }

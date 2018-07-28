@@ -136,6 +136,7 @@ MonoBehaviour:
   Damage: 20
   speed: 10
   Fired_By_Player: 0
+  hitSound: Shuriken_Hit
 --- !u!212 &212771241214092632
 SpriteRenderer:
   m_ObjectHideFlags: 1
