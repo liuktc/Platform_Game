@@ -10,14 +10,11 @@ public class WeaponController : MonoBehaviour {
 	//float add = 0;
 	float lastAngle;
 
+	[HideInInspector]
+	public bool flip = true;
+
 	public Text DebugText;
 
-	//[HideInInspector]
-	//public GameObject Weapon_Pivot;
-	/*[HideInInspector]
-	public Collider2D Weapon_Collider;*/
-	//[HideInInspector]
-	//public GameObject Weapon_Sprite;
 	[HideInInspector]
 	public WeaponStatus Weapon_Status;
 	//[HideInInspector]
@@ -29,21 +26,6 @@ public class WeaponController : MonoBehaviour {
 	public GameObject Projectile;
 	public float FireRate;
 	private float LastFire;
-
-	/*public Animator Anim_Weapon;
-	public Animator Anim_Angle;*/
-
-	/*public float Attack1_Force_x;
-	public float Attack1_Force_y;
-	public float Attack1_Force_Time;
-	public float Attack1_Damage;
-	public float Attack1_Vertical_Multiplicator;
-
-	public float Attack1Rate;
-	private float LastAttack1;
-
-	public float Attack3Rate;
-	private float LastAttack3;*/
 
 	public Attack[] attackList = new Attack[2];
 	[HideInInspector]
@@ -77,7 +59,15 @@ public class WeaponController : MonoBehaviour {
 			Angle = MouseAngle();
 		}*/
 
-		Angle = MouseAngle();
+		if (FindObjectOfType<GameManager>().useController)
+		{
+			Angle = JoystickAngle();
+		}
+		else
+		{
+			Angle = MouseAngle();
+		}
+		//Angle = MouseAngle();
 		//add = 0;
 
 		//Debug.Log(Weapon_Status.Attack1);
@@ -143,7 +133,10 @@ public class WeaponController : MonoBehaviour {
 			Angle += 360;
 		}
 		//ClampAngle();
-		CalculateFlip();
+		if (flip)
+		{
+			CalculateFlip();
+		}
 
 		//DebugText.text = "α = " + Angle;
 		transform.eulerAngles = new Vector3(0,0,Angle);
@@ -206,6 +199,7 @@ public class WeaponController : MonoBehaviour {
 	public void StopAttack()
 	{
 		isAttacking = false;
+		flip = true;
 	}
 	bool leftAngle()
 	{
@@ -249,7 +243,7 @@ public class WeaponController : MonoBehaviour {
 			UIAttack2Animator.SetTrigger("Use");
 			Weapon_Status.Attack2 = true;
 			GameObject instance;
-			instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Pivot").Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
+			instance = (GameObject)Instantiate(Projectile, gameObject.transform.Find("Pivot").Find("Pivot2").Find("HandSprite").gameObject.transform.position, Quaternion.Euler(0, 0, Angle));
 			instance.GetComponent<Projectile>().Fired_By_Player = true;
 			Destroy(instance, 5.0f);
 			LastFire = Time.time;

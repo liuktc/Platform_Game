@@ -11,9 +11,15 @@ public class DialogueController : MonoBehaviour {
 
 	public bool Loop_Last_Speech;
 	public int Number_Of_Speech;
+	public bool autoPlay;
+	public KeyCode buttonKeyboardTrigger;
+
+	public float distanceTrigger;
 
 	int Sentences_Speaked = 0;
 	float PlayerStats;
+
+	public Animator anim;
 	// Use this for initialization
 	void Start () {
 		Player = GameObject.FindWithTag("Player");
@@ -26,6 +32,10 @@ public class DialogueController : MonoBehaviour {
 	{
 		return Mathf.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
+	void OnDrawGizmosSelected()
+	{
+		Gizmos.color = new Color(0, 255, 255, 0.3f);
+		Gizmos.DrawSphere(transform.position, distanceTrigger);	}
 
 	void Speak()
 	{
@@ -41,7 +51,7 @@ public class DialogueController : MonoBehaviour {
 			if (Sentences_Speaked < Number_Of_Speech)
 			{
 				Sentences_Speaked++;
-				//Debug.Log(Sentences_Speaked + "nd dialogue");
+				Debug.Log(Sentences_Speaked + "nd dialogue");
 				transform.Find(Sentences_Speaked + "_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
 			}
 			else
@@ -54,7 +64,7 @@ public class DialogueController : MonoBehaviour {
 				{
 					if (Loop_Last_Speech == true)
 					{
-						//Debug.Log(Sentences_Speaked + "nd dialogue");
+						Debug.Log(Sentences_Speaked + "nd dialogue");
 						transform.Find(Sentences_Speaked + "_dialogue").gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
 					}
 				}
@@ -77,20 +87,49 @@ public class DialogueController : MonoBehaviour {
 	void Update()
 	{
 		float dis = distance(transform.position.x, transform.position.y, Player.transform.position.x, Player.transform.position.y);
-		if (dis <= 3 && speaking == false)
+		if (speaking && Input.GetKeyDown(buttonKeyboardTrigger))
 		{
-			Speak();
+			FindObjectOfType<DialogueManager>().DisplayNextSentence();
+			anim.SetBool("in", false);
 		}
-		if(dis >3)
+		if (dis <= distanceTrigger && speaking == false)
 		{
+			anim.SetBool("in", true);
+			if (autoPlay)
+			{
+				Speak();
+			}
+			else
+			{
+				if (Input.GetKeyDown(buttonKeyboardTrigger))
+				{
+					Speak();
+				}
+			}
+		}
+		if(dis > distanceTrigger)
+		{
+			anim.SetBool("in", false);
 			StopSpeak();
 		}
-		if (GetComponent<DialogueTrigger>().IsDialogueEnded() == false)
+		if (!GetComponent<DialogueTrigger>().IsDialogueEnded())
 		{
 			DisablePlayerMovement();
 		}
 		else
 		{
 			EnablePlayerMovement();
+		}
+		if (Number_Of_Speech == Sentences_Speaked && !Loop_Last_Speech)
+		{
+			anim.SetBool("in", false);
+		}
+		if (speaking)
+		{
+			anim.SetBool("in", false);
 		}	}
+	void PlayAnimation()
+	{
+		anim.SetBool("in", true);
+	}
 }

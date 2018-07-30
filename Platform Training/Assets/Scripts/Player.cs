@@ -54,7 +54,15 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
-		PlayerAngle = MouseAngle();
+		/*if (FindObjectOfType<GameManager>().useController)
+		{
+			PlayerAngle = JoystickAngle();
+		}
+		else
+		{
+			PlayerAngle = MouseAngle();
+		}*/
+		PlayerAngle = FindObjectOfType<WeaponController>().Angle;
 		CalculateFlip();
 		if (controller.collisions.below || controller.collisions.left || controller.collisions.right)
 		{
@@ -113,6 +121,16 @@ public class Player : MonoBehaviour {
 		return 0;
 	}
 
+	/*float JoystickAngle()
+	{
+		float Horizontal = Input.GetAxis("RightStickX");
+		float Vertical = Input.GetAxis("RightStickY");
+
+		if ((Horizontal < 0.05 && Horizontal > -0.05) && (Vertical < 0.05 && Vertical > -0.05) && lastLeft)
+		{
+			return 180;
+		}
+		return -Mathf.Atan2(Vertical, Horizontal) * Mathf.Rad2Deg;	}*/
 
 	void CalculateFlip()
 	{

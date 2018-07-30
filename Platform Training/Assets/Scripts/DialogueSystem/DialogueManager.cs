@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public void DisplayNextSentence ()
 	{
-		//Debug.Log("next message");
+		Debug.Log("next message");
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour {
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
 		{
-			//Debug.Log("Added letter " + letter);
+			Debug.Log("Added letter " + letter);
 			dialogueText.text += letter;
 			yield return null;
 		}

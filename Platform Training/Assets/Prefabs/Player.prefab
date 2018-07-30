@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1227805862097274}
   m_IsPrefabAsset: 1
+--- !u!1 &1222025866236924
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4374629676460014}
+  m_Layer: 8
+  m_Name: Pivot2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1227805862097274
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,6 +40,8 @@ GameObject:
   - component: {fileID: 114268392087307448}
   - component: {fileID: 212055018836956914}
   - component: {fileID: 114185793092790508}
+  - component: {fileID: 95856055652401158}
+  - component: {fileID: 114524793782958972}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -71,7 +88,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4341208430920254}
-  - component: {fileID: 95093497361487706}
   - component: {fileID: 114188623305645054}
   m_Layer: 8
   m_Name: Pivot
@@ -106,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4021540885293614}
   - component: {fileID: 212903732981442638}
+  - component: {fileID: 114096794077314624}
   m_Layer: 8
   m_Name: HandSprite
   m_TagString: Weapon
@@ -138,12 +155,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774092853887292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58300006, y: -0.066, z: 4.6400003}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5830002, y: -0.066, z: 4.6400003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4154601068183426}
-  m_Father: {fileID: 4341208430920254}
+  m_Father: {fileID: 4374629676460014}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4135252483726104
@@ -197,8 +214,22 @@ Transform:
   m_LocalPosition: {x: -0.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4021540885293614}
+  - {fileID: 4374629676460014}
   m_Father: {fileID: 4135252483726104}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4374629676460014
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222025866236924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4021540885293614}
+  m_Father: {fileID: 4341208430920254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4724965693323456
@@ -312,24 +343,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43183145, y: 0.833468}
   m_EdgeRadius: 0
---- !u!95 &95093497361487706
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444101660047742}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 865857178a1d4ea408640dd46c37ff29, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95277240493402866
 Animator:
   serializedVersion: 3
@@ -348,6 +361,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95856055652401158
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227805862097274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 865857178a1d4ea408640dd46c37ff29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114096794077314624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774092853887292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee6c2316bbd83545a43c47faafc30ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  an: {fileID: 0}
 --- !u!114 &114185793092790508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81de9558679394d24b9a80bed2b095c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attack2Active: 0
+  Attack2Active: 1
   ControlEnabled: 1
 --- !u!114 &114296088748867134
 MonoBehaviour:
@@ -428,6 +471,17 @@ MonoBehaviour:
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
   DebugTest: {fileID: 0}
+--- !u!114 &114524793782958972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1227805862097274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633fbd24b7f830d4e980abb2546c5a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114661936760404412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Angle: 0
+  flip: 1
   DebugText: {fileID: 0}
   Player: {fileID: 1227805862097274}
   left: 0
@@ -448,15 +503,34 @@ MonoBehaviour:
   lastRight: 0
   Projectile: {fileID: 1986917534970806, guid: 04eeff44fc0ec7a45b399f016ecf5e1e, type: 2}
   FireRate: 1
-  Attack_Force_x: 100
-  Attack_Force_y: 20
-  Attack_Force_Time: 0.25
-  Attack_Damage: 100
-  Attack_Vertical_Multiplicator: 2
-  AttackRate: 2
+  attackList:
+  - attack_Force_x: 20
+    attack_Force_y: 10
+    attack_Force_Time: 0.5
+    attack_Damage: 100
+    attack_Vertical_Multiplicator: 1
+    attackRate: 0.5
+    lastAttack: 0
+    triggerAnimationName: 
+    isDirectional: 1
+    triggerAnimationNameLeft: Attack_Left
+    triggerAnimationNameRight: Attack_Right
+  - attack_Force_x: 20
+    attack_Force_y: 10
+    attack_Force_Time: 0.5
+    attack_Damage: 200
+    attack_Vertical_Multiplicator: 2
+    attackRate: 0.5
+    lastAttack: 0
+    triggerAnimationName: 
+    isDirectional: 1
+    triggerAnimationNameLeft: Lunge_Left
+    triggerAnimationNameRight: Lunge_Right
+  isAttacking: 0
+  attackIndex: 0
   UIAttackAnimator: {fileID: 0}
   UIAttack2Animator: {fileID: 0}
-  WeaponAnimator: {fileID: 95093497361487706}
+  WeaponAnimator: {fileID: 95856055652401158}
 --- !u!114 &114899716880789994
 MonoBehaviour:
   m_ObjectHideFlags: 1
